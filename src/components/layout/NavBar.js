@@ -11,7 +11,7 @@ export class NavBar extends Component {
 
     static propTypes = {
         title :  PropTypes.string.isRequired,
-        icone : PropTypes.string.isRequired
+        icon : PropTypes.string.isRequired
     };
     render() {
         return (
