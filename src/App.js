@@ -39,13 +39,15 @@ class App extends Component {
 
   //lifecycle method
   render() {
+    const {users, loading} = this.state; 
+
     return (
       <div className="App">
         <NavBar />
         <div className = 'container'>
           <Search searchUsers = {this.searchUsers} clearUsers = {this.clearUsers}
-          showClear = {this.state.users.length > 0 ? true: false}/>
-          <Users loading = {this.state.loading} users = {this.state.users}/>  
+          showClear = {users.length > 0 ? true: false}/>
+          <Users loading = {loading} users = {users}/>  
         </div>
       </div>
     );
