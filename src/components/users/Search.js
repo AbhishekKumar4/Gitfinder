@@ -21,6 +21,9 @@ export class Search extends Component {
                     onChange = {this.onChange}/>
                     <input type = "submit" value = "Search" className = "btn btn-dark btn-block"/>
                 </form>
+                {this.props.showClear && 
+                <button className = 'btn btn-light btn-block' onClick = {this.props.clearUsers}>Clear</button>
+                } 
             </div>
         )
     }
