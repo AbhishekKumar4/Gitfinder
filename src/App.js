@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import NavBar from './components/layout/NavBar'
 import Users from './components/users/Users'
 import Search from './components/users/Search'
+import Alert from './components/layout/Alert'
 // npm i axios for http apis
 import axios from 'axios'
 
@@ -10,7 +11,8 @@ import './App.css';
 class App extends Component {
   state = {
     users : [],
-    loading : false
+    loading : false,
+    alert : null
   }
   //lifecycle method
   //async componentDidMount() {
@@ -36,6 +38,12 @@ class App extends Component {
   //clear users from state
   clearUsers = () => this.setState({users : [], loading : false})
 
+  //set alert
+  setAlert = (msg, type) => {
+    this.setState({alert : { msg : msg, type : type}})
+
+    setTimeout(() => this.setState({ alert : null}), 5000);
+  } 
 
   //lifecycle method
   render() {
@@ -44,9 +52,11 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <Alert alert = {this.state.alert} />
         <div className = 'container'>
           <Search searchUsers = {this.searchUsers} clearUsers = {this.clearUsers}
-          showClear = {users.length > 0 ? true: false}/>
+          showClear = {users.length > 0 ? true: false}
+          setAlert = {this.setAlert}/>
           <Users loading = {loading} users = {users}/>  
         </div>
       </div>
