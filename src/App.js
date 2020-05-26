@@ -41,8 +41,7 @@ class App extends Component {
   //set alert
   setAlert = (msg, type) => {
     this.setState({alert : { msg : msg, type : type}})
-
-    setTimeout(() => this.setState({ alert : null}), 5000);
+    setTimeout(() => this.setState({ alert : null}), 50000);
   } 
 
   //lifecycle method
@@ -52,8 +51,8 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Alert alert = {this.state.alert} />
         <div className = 'container'>
+        <Alert alert = {this.state.alert} />
           <Search searchUsers = {this.searchUsers} clearUsers = {this.clearUsers}
           showClear = {users.length > 0 ? true: false}
           setAlert = {this.setAlert}/>
