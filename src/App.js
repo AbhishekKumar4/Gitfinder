@@ -41,7 +41,7 @@ class App extends Component {
   //set alert
   setAlert = (msg, type) => {
     this.setState({alert : { msg : msg, type : type}})
-    setTimeout(() => this.setState({ alert : null}), 50000);
+    setTimeout(() => this.setState({ alert : null}), 5000);
   } 
 
   //lifecycle method
