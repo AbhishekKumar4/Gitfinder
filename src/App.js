@@ -6,6 +6,7 @@ import User from './components/users/User'
 import Search from './components/users/Search'
 import Alert from './components/layout/Alert'
 import About from './components/pages/About'
+import GithubState from './context/github/GithubState'
 // npm i axios for http apis
 import axios from 'axios'
 
@@ -69,6 +70,7 @@ const App = () => {
 
   //lifecycle method
     return (
+      <GithubState>
       <Router>
         <div className="App">
         <NavBar />
@@ -97,6 +99,7 @@ const App = () => {
         </div>
       </div>
       </Router>
+      </GithubState>
     );
 }
 
