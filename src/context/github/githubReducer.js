@@ -9,11 +9,11 @@ import {
 export default (state, action) => {
 
     switch(action.type) {
-        case SEARCH_USERS :
+        case SEARCH_USERS:
             return {
                 ...state,
                 users : action.payload,
-                loading : false
+                loading : true
             }
         case SET_LOADING:
             return {
@@ -23,4 +23,4 @@ export default (state, action) => {
         default :
             return state;
     }
-}
+} 
