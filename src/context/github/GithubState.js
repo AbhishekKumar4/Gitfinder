@@ -38,7 +38,7 @@ const GithubState = props => {
     const setLoading = () => dispatch({type : SET_LOADING});
 
     return <GithubContext.Provider
-    values = {{
+    value = {{
             users : state.users,
             user : state.user,
             repos: state.repos,
