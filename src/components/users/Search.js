@@ -3,7 +3,6 @@ import GithubContext from '../../context/github/githubContext'
 
 const Search = ({showClear, clearUsers, setAlert}) => {
     const githubContext = useContext(GithubContext);
-    console.log(githubContext);
     const [text, setText] = useState('');
 
     const onChange = (e) => setText(e.target.value);
