@@ -13,33 +13,9 @@ import axios from 'axios'
 import './App.css';
 
 const App = () => {
-
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
-
-  //lifecycle method
-  //async componentDidMount() {
-
-  //  console.log(process.env.REACT_APP_GITHUB_CLIENT_ID);
-  //  this.setState({loading : true});
-
-  //  const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-  //  this.setState({users : res.data, loading : false})
-  //}
-
-
-
-  // Get single user
-  const getUser =  async (username) => {
-    setLoading(true);
-    const res = await axios.get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-    setUser(res.data);
-    setLoading(false);
-  }
 
   // Get user repos
   const getUserRepos =  async (username) => {
@@ -75,11 +51,9 @@ const App = () => {
           </Route>
           <Route exact path = '/about' component = {About}></Route>
           <Route exact path = '/user/:login' render = {props => (
-            <User { ...props } getUser = {getUser} 
+            <User { ...props }
             getUserRepos = {getUserRepos}
-            user = {user}
-            repos = {repos} 
-            loading = {loading}/>
+            repos = {repos} />
           )} />
         </Switch>
         </div>
